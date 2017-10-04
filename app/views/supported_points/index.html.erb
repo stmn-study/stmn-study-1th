@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Supported Points</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Project</th>
+      <th>Point</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @supported_points.each do |supported_point| %>
+      <tr>
+        <td><%= supported_point.user_id %></td>
+        <td><%= supported_point.project_id %></td>
+        <td><%= supported_point.point %></td>
+        <td><%= link_to 'Show', supported_point %></td>
+        <td><%= link_to 'Edit', edit_supported_point_path(supported_point) %></td>
+        <td><%= link_to 'Destroy', supported_point, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Supported Point', new_supported_point_path %>

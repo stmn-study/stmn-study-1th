@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @supported_point.user_id %>
+</p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @supported_point.project_id %>
+</p>
+
+<p>
+  <strong>Point:</strong>
+  <%= @supported_point.point %>
+</p>
+
+<%= link_to 'Edit', edit_supported_point_path(@supported_point) %> |
+<%= link_to 'Back', supported_points_path %>

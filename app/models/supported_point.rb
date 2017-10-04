@@ -1,0 +1,2 @@
+class SupportedPoint < ApplicationRecord
+end
