@@ -1,0 +1,32 @@
+<%= form_for(supported_point) do |f| %>
+  <% if supported_point.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(supported_point.errors.count, "error") %> prohibited this supported_point from being saved:</h2>
+
+      <ul>
+      <% supported_point.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %>
+    <%= f.number_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :project_id %>
+    <%= f.number_field :project_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :point %>
+    <%= f.number_field :point %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
