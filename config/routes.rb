@@ -1,7 +1,20 @@
 Rails.application.routes.draw do
-  resources :users
+
+  ################################
+  #### devise向け
+  ################################
+
+  devise_for :users
+
+  ################################
+  #### user向け
+  ################################
+
+  root to: 'home#index'
+  get  'home' => 'home#index'
+
   resources :views
   resources :supported_points
   resources :projects
-  get  'home' => 'home#index'
+
 end
