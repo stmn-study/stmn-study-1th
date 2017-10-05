@@ -6,18 +6,7 @@
   </div>
 </nav>
 
-
-
 <ul class="nav justify-content-center">
-  <li class="nav-item ">
-    <a class="nav-link active" href="#">Active</a>
-  </li>
-  <li class="nav-item ">
-    <a class="nav-link" href="#">Longer nav link</a>
-  </li>
-  <li class="nav-item ">
-    <a class="nav-link" href="#">Link</a>
-  </li>
   <% if user_signed_in? %>
     <li class="nav-item ">
       <%= link_to "Log_out", destroy_user_session_path, method: :delete %>

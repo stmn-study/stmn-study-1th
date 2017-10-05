@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Projects</h1>
+<h1>自分の企画一覧</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Target point</th>
-      <th>Message</th>
-      <th>User</th>
+      <th>企画名</th>
+      <th>目標金額</th>
+      <th>お礼のメッセージ</th>
+      <th>主催者</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,7 +19,7 @@
         <td><%= project.name %></td>
         <td><%= project.target_point %></td>
         <td><%= project.message %></td>
-        <td><%= project.user_id %></td>
+        <td><%= project.user&.name %></td>
         <td><%= link_to 'Show', project %></td>
         <td><%= link_to 'Edit', edit_project_path(project) %></td>
         <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -27,7 +27,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Project', new_project_path %>
