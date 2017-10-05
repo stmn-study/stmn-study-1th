@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   #### user向け
   ################################
 
+  root to: 'home#index'
   get  'home' => 'home#index'
 
   resources :views
