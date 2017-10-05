@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20171005095317) do
 
-  create_table "projects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "projects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string   "name"
     t.integer  "target_point"
     t.text     "message",      limit: 65535
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20171005095317) do
     t.datetime "updated_at",                 null: false
   end
 
-  create_table "supported_points", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "supported_points", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.integer  "user_id"
     t.integer  "project_id"
     t.integer  "point"
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20171005095317) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  create_table "views", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "views", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.integer  "user_id"
     t.integer  "project_id"
     t.datetime "created_at", null: false
