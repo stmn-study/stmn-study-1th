@@ -15,6 +15,10 @@
 #  last_sign_in_ip        :string(255)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  name                   :string(255)
+#  gender                 :integer
+#  points                 :integer
+#  image                  :binary(65535)
 #
 
 class User < ApplicationRecord
