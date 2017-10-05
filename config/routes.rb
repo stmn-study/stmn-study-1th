@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :users
+  devise_for :users
   resources :views
   resources :supported_points
   resources :projects
