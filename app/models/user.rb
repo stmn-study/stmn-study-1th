@@ -28,4 +28,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :projects
+  has_many :supported_points
+
+  validates :name, :gender, :points, presence: true
+
 end

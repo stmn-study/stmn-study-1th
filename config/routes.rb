@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   root to: 'home#index'
   get  'home' => 'home#index'
 
+  resources :users
+  resources :views
   resources :supported_points
   resources :projects
 

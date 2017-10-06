@@ -12,6 +12,7 @@
 #
 
 class Project < ApplicationRecord
+  has_many   :supported_points
   belongs_to :user
 
   validates :name, :target_point, :message, :user, presence: true
