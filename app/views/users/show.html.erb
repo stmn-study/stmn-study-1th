@@ -1,0 +1,9 @@
+<p><%= @user.name %></p>
+
+<p><%= @user.gender %></p>
+
+<p><%= @user.points %></p>
+
+<button type="button" class="btn btn-primary">
+  <%= link_to "編集", edit_user_path(@user) %>
+</button>
