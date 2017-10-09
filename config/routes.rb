@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :activities
   ################################
   #### devise向け
   ################################
