@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171005095317) do
+ActiveRecord::Schema.define(version: 20171009233732) do
+
+  create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+    t.integer  "user_id",                        null: false
+    t.integer  "project_id",                     null: false
+    t.integer  "supported_point_id"
+    t.integer  "comment_id"
+    t.integer  "type",               default: 1, null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
 
   create_table "projects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string   "name"
@@ -51,6 +61,13 @@ ActiveRecord::Schema.define(version: 20171005095317) do
   end
 
   create_table "views", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "watches", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.integer  "user_id"
     t.integer  "project_id"
     t.datetime "created_at", null: false
