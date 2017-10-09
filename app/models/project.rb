@@ -15,4 +15,5 @@ class Project < ApplicationRecord
   belongs_to :user
 
   validates :name, :target_point, :message, :user, presence: true
+
 end
