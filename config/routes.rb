@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :activities
   ################################
   #### devise向け
   ################################
@@ -16,6 +15,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :views
+  resources :activities
   resources :supported_points
   resources :projects
 
