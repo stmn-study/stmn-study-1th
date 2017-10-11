@@ -1,3 +1,7 @@
+<% if @user.image.present? %>
+  <%= image_tag @user.image_url(:thumb) %>
+<% end %>
+
 <p><%= @user.name %></p>
 
 <p><%= @user.gender %></p>

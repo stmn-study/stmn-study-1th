@@ -35,6 +35,7 @@ gem 'bootstrap', '~> 4.0.0.alpha5'
 
 gem 'annotate'    # model に schema を表示
 gem 'carrierwave' # 画像アップロード用
+gem 'rmagick', require: 'RMagick' # 画像リサイズ用
 gem 'devise'      # ログイン用
 
 group :development, :test do
