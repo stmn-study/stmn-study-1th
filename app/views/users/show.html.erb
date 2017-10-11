@@ -1,13 +1,19 @@
-<% if @user.image.present? %>
-  <%= image_tag @user.image_url(:thumb) %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-6 col-offset-3">
+      <% if @user.image.present? %>
+        <%= image_tag @user.image_url(:thumb) %>
+      <% end %>
 
-<p><%= @user.name %></p>
+      <p><%= @user.name %></p>
 
-<p><%= @user.gender %></p>
+      <p><%= @user.gender %></p>
 
-<p><%= @user.points %></p>
+      <p><%= @user.points %></p>
 
-<button type="button" class="btn btn-primary">
-  <%= link_to "編集", edit_user_path(@user) %>
-</button>
+      <button type="button" class="btn btn-primary">
+        <%= link_to "編集", edit_user_path(@user) %>
+      </button>
+    </div>
+  </div>
+</div>

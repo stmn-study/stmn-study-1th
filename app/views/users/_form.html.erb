@@ -1,7 +1,7 @@
 <%= form_for(user) do |f| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this supported_point from being saved:</h2>
+      <h2><%= pluralize(user.errors.count, "error") %> エラー一覧</h2>
 
       <ul>
         <% user.errors.full_messages.each do |message| %>
@@ -11,27 +11,33 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :image %>
+  <div class="form-group">
+    <%= f.label :image, '画像' %>
     <%= f.file_field :image %>
   </div>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <div class="form-group">
+    <%= f.label :name, '名前' %>
+    <div class="col-xs-8">
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :gender %>
-    <%= f.text_field :gender %>
+  <div class="form-group">
+    <%= f.label :gender, '性別' %>
+    <div class="col-xs-8">
+      <%= f.text_field :gender, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :points %>
-    <%= f.number_field :points %>
+  <div class="form-group">
+    <%= f.label :points, 'ポイント' %>
+    <div class="col-xs-8">
+      <%= f.number_field :points, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.submit (user.new_record? ? '作成' : '更新'), data: {disable_with: '送信中'}, class: 'btn btn-primary col-xs-4' %>
   </div>
 <% end %>
