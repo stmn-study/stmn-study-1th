@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171009233732) do
+ActiveRecord::Schema.define(version: 20171011111600) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.integer  "user_id",                        null: false
     t.integer  "project_id",                     null: false
     t.integer  "supported_point_id"
     t.integer  "comment_id"
-    t.integer  "type",               default: 1, null: false
+    t.integer  "event_type",         default: 1, null: false
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
   end
