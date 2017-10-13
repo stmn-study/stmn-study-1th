@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    Activity.watch!(current_user, @project)
   end
 
   def new
