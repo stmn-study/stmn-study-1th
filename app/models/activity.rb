@@ -61,4 +61,17 @@ class Activity < ApplicationRecord
       factory!(comment.user, comment.project, :comment)
     end
   end
+
+  def sentence
+    case event_type.to_sym
+      when :support
+        "#{user.email}さんが支援しました"
+      when :comment
+        "#{user.email}さんがコメントしました"
+      when :watch
+        "#{user.email}さんがウォッチしました"
+      else
+        # あとでError追加
+    end
+  end
 end
