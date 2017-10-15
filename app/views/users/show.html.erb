@@ -1,19 +1,21 @@
 <div class="container">
   <div class="row">
-    <div class="col-6 col-offset-3">
+    <div class="card" style="width: 20rem;">
       <% if @user.image.present? %>
-        <%= image_tag @user.image_url(:thumb) %>
+        <%= image_tag @user.image_url(:thumb), class:"card-img-top", alt:"Card image cap", style:"height: 180px; width: 100%; display: block;"%>
+      <% else %>
+
       <% end %>
+      <div class="card-body">
+        <h4 class="card-title"><%= @user.name %></h4>
 
-      <p><%= @user.name %></p>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">性別：<%= @user.gender %></li>
+          <li class="list-group-item">ポイント：<%= @user.points %></li>
+        </ul>
 
-      <p><%= @user.gender %></p>
-
-      <p><%= @user.points %></p>
-
-      <button type="button" class="btn btn-primary">
-        <%= link_to "編集", edit_user_path(@user) %>
-      </button>
+        <%= link_to "編集", edit_user_path(@user), class:"btn btn-lg btn-primary btn-block" %>
+      </div>
     </div>
   </div>
 </div>
