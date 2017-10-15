@@ -29,7 +29,4 @@ class User < ApplicationRecord
   has_many :supported_points
 
   mount_uploader :image, ImageUploader
-
-  validates :name, :gender, :points, presence: true
-
 end
