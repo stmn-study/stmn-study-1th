@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="card" style="width: 20rem;">
+      <% if @user.image.present? %>
+        <%= image_tag @user.image_url(:thumb), class:"card-img-top", alt:"Card image cap", style:"height: 180px; width: 100%; display: block;"%>
+      <% else %>
+
+      <% end %>
+      <div class="card-body">
+        <h4 class="card-title"><%= @user.name %></h4>
+
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">性別：<%= @user.gender %></li>
+          <li class="list-group-item">ポイント：<%= @user.points %></li>
+        </ul>
+
+        <%= link_to "編集", edit_user_path(@user), class:"btn btn-lg btn-primary btn-block" %>
+      </div>
+    </div>
+  </div>
+</div>

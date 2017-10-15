@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :activities
   ################################
   #### devise向け
   ################################
@@ -14,6 +13,9 @@ Rails.application.routes.draw do
   root to: 'home#index'
   get  'home' => 'home#index'
 
+  resources :users
+  resources :views
+  resources :activities
   resources :supported_points
   resources :projects
 
