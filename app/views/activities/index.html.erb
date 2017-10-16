@@ -1,22 +1,26 @@
-<h1>アクティビティ</h1>
-
-<table>
-  <thead>
+<div class="container">
+  <h1>アクティビティ</h1>
+  <table class="table">
+    <thead class="bg-primary">
     <tr>
-      <th>Project</th>
+      <th></th>
+      <th>企画名</th>
+      <th></th>
+      <th>日時</th>
       <th colspan="3"></th>
     </tr>
-  </thead>
-
-  <tbody>
+    </thead>
+    <tbody>
     <% @activities.each do |activity| %>
       <tr>
         <td><%= activity.sentence %></td>
         <td><%= activity.project.name %></td>
         <td><%= activity.supported_point %></td>
         <td><%= activity.created_at %></td>
-        <td><%= link_to 'Show', project_path(activity.project) %></td>
+        <td><%= link_to 'Show', activity %></td>
       </tr>
     <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+  <%= link_to 'ホーム', root_path %>
+</div>

@@ -1,24 +1,19 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @project.name %>
-</p>
-
-<p>
-  <strong>Target point:</strong>
-  <%= @project.target_point %>
-</p>
-
-<p>
-  <strong>Message:</strong>
-  <%= @project.message %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @project.user_id %>
-</p>
-
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+<div class="container">
+  <div class="card">
+    <div class="card-block">
+      <h4 class="card-title"><%= @project.name %></h4>
+      <ul class="list-group">
+        <li class="list-group-item">目標金額: <%= @project.target_point %></li>
+        <li class="list-group-item">企画者: <%= @project.user.name %></li>
+      </ul>
+      <br>
+      <% unless @project.user == current_user %>
+        <a href="#" class="btn btn-primary">支援する</a>
+      <% end %>
+    </div>
+  </div>
+  <%= link_to '企画一覧に戻る', projects_path %>
+  <% if @project.user == current_user %>
+    <%= link_to '編集する', edit_project_path(@project) %>
+  <% end %>
+</div>
