@@ -1,37 +1,40 @@
-<%= form_for(project) do |f| %>
-  <% if project.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
-      <ul>
-        <% project.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+<div class="container">
+  <div class="row">
+    <div class="col-6 col-offset-3">
+      <%= form_for(project) do |f| %>
+        <% if project.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+            <ul>
+              <% project.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="form-group">
-    <%= f.label :name, 'タイトル' %>
-    <div class="col-xs-12">
-      <%= f.text_field :name, class: 'form-control' %>
+        <div class="form-group">
+          <%= f.label :name, 'タイトル' %>
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :target_point, '目標金額' %>
+          <%= f.number_field :target_point, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :message, 'お礼メッセージ' %>
+          <%= f.text_area :message, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.submit (project.new_record? ? '作成' : '更新'), data: {disable_with: '送信中'}, class: 'btn btn-lg btn-primary btn-block' %>
+        </div>
+
+        <%= link_to '企画一覧に戻る', projects_path %>
+
+      <% end %>
     </div>
   </div>
-
-  <div class="form-group">
-    <%= f.label :target_point, '目標金額' %>
-    <div class="col-xs-12">
-      <%= f.number_field :target_point, class: 'form-control' %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :message, 'お礼メッセージ' %>
-    <div class="col-xs-12">
-      <%= f.text_area :message, class: 'form-control' %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <%= f.submit (project.new_record? ? '作成' : '更新'), data: {disable_with: '送信中'}, class: 'btn btn-primary col-xs-4' %>
-  </div>
-<% end %>
+</div>

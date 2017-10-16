@@ -1,33 +1,35 @@
-<nav class="navbar navbar-inverse bg-primary">
-  <div class="container">
-    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-      <a class="navbar-brand" href="#">Polca</a>
-    </nav>
+<div class="container">
+  <nav class="navbar navbar-inverse bg-primary">
+    <div class="container">
+      <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+        <a class="navbar-brand" href="#">Polca</a>
+      </nav>
+    </div>
+  </nav>
+
+  <ul class="nav justify-content-center">
+    <% if user_signed_in? %>
+      <li class="nav-item ">
+        <%= link_to "Log_out", destroy_user_session_path, method: :delete %>
+      </li>
+    <% end %>
+  </ul>
+
+  <div class="list-group">
+    <%= link_to activities_path, class: 'list-group-item list-group-item-action flex-column align-items-start active', style: 'margin-bottom:50px;' do %>
+      <div class="d-flex w-100 justify-content-between">
+        <h1 class="mb-1">アクティビティ</h1>
+      </div>
+    <% end %>
+    <%= link_to new_project_path, class: 'list-group-item list-group-item-action flex-column align-items-start active', style: 'margin-bottom:50px;' do %>
+      <div class="d-flex w-100 justify-content-between">
+        <h1 class="mb-1">はじめる</h1>
+      </div>
+    <% end %>
+    <%= link_to user_path(current_user), class: 'list-group-item list-group-item-action flex-column align-items-start active' do %>
+      <div class="d-flex w-100 justify-content-between">
+        <h1 class="mb-1">プロフィール</h1>
+      </div>
+    <% end %>
   </div>
-</nav>
-
-<ul class="nav justify-content-center">
-  <% if user_signed_in? %>
-    <li class="nav-item ">
-      <%= link_to "Log_out", destroy_user_session_path, method: :delete %>
-    </li>
-  <% end %>
-</ul>
-
-<div class="list-group">
-  <%= link_to activities_path, class: 'list-group-item list-group-item-action flex-column align-items-start active', style: 'margin-bottom:50px;' do %>
-    <div class="d-flex w-100 justify-content-between">
-      <h1 class="mb-1">アクティビティ</h1>
-    </div>
-  <% end %>
-  <%= link_to new_project_path, class: 'list-group-item list-group-item-action flex-column align-items-start active', style: 'margin-bottom:50px;' do %>
-    <div class="d-flex w-100 justify-content-between">
-      <h1 class="mb-1">はじめる</h1>
-    </div>
-  <% end %>
-  <%= link_to user_path(current_user), class: 'list-group-item list-group-item-action flex-column align-items-start active' do %>
-    <div class="d-flex w-100 justify-content-between">
-      <h1 class="mb-1">プロフィール</h1>
-    </div>
-  <% end %>
 </div>

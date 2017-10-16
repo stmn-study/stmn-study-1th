@@ -1,29 +1,31 @@
 <p id="notice"><%= notice %></p>
-
-<h1>自分の企画一覧</h1>
-
-<table>
-  <thead>
+<div class="container">
+  <h1>自分の企画一覧</h1>
+  <table class="table">
+    <thead class="bg-primary">
     <tr>
+      <th>#</th>
       <th>企画名</th>
       <th>目標金額</th>
-      <th>お礼のメッセージ</th>
       <th>主催者</th>
       <th colspan="3"></th>
     </tr>
-  </thead>
-
-  <tbody>
+    </thead>
+    <tbody>
     <% @projects.each do |project| %>
-      <tr>
+      <tr class=<%= 'table-active' if project.user == current_user %>>
+        <th scope="row"><%= project.id %></th>
         <td><%= project.name %></td>
         <td><%= project.target_point %></td>
-        <td><%= project.message %></td>
         <td><%= project.user&.name %></td>
         <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if project.user == current_user %>
+          <td><%= link_to 'Edit', edit_project_path(project) %></td>
+          <td><%= link_to 'Destroy', project, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+        <% end %>
       </tr>
     <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+  <%= link_to 'ホーム', root_path %>
+</div>
