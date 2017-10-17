@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
-    <div class="card" style="width: 20rem;">
+    <div class="card">
       <% if @user.image.present? %>
-        <%= image_tag @user.image_url(:thumb), class:"card-img-top", alt:"Card image cap", style:"height: 180px; width: 100%; display: block;"%>
+        <%= image_tag @user.image_url(:thumb), class: "card-img-top", alt: "Card image cap", style: "width: 100%; display: block;" %>
       <% else %>
 
       <% end %>
@@ -14,7 +14,7 @@
           <li class="list-group-item">ポイント：<%= @user.points %></li>
         </ul>
 
-        <%= link_to "編集", edit_user_path(@user), class:"btn btn-lg btn-primary btn-block" %>
+        <%= link_to "編集", edit_user_path(@user), class: "btn btn-lg btn-primary btn-block" %>
       </div>
     </div>
   </div>
