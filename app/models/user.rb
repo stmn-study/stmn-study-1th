@@ -28,5 +28,7 @@ class User < ApplicationRecord
   has_many :projects
   has_many :supported_points
 
+  enum gender: { male: 1, female: 2 }
+
   mount_uploader :image, ImageUploader
 end
