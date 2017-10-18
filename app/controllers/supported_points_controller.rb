@@ -1,5 +1,6 @@
 class SupportedPointsController < ApplicationController
   before_action :set_supported_point, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, only: [:new]
 
   def index
     @supported_points = SupportedPoint.all
@@ -13,7 +14,11 @@ class SupportedPointsController < ApplicationController
   end
 
   def create
-    if @supported_point = SupportedPoint.create(supported_point_params)
+    @supported_point = SupportedPoint.create(supported_point_params) do |p|
+      p.user = current_user
+    end
+
+    if @supported_point.save
       redirect_to projects_path, notice: "支援が完了しました。"
     else
       render :new
@@ -38,6 +43,10 @@ class SupportedPointsController < ApplicationController
   private
     def set_supported_point
       @supported_point = SupportedPoint.find(params[:id])
+    end
+
+    def set_project
+      @project = Project.find(params[:project_id])
     end
 
     def supported_point_params

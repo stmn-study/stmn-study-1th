@@ -1,5 +1,10 @@
-<p id="notice"><%= notice %></p>
 <div class="container">
+  <% if notice.present? %>
+    <div class="alert alert-success mt20" role="alert">
+      <%= notice %>
+    </div>
+  <% end %>
+
   <h1>自分の企画一覧</h1>
   <table class="table">
     <thead class="bg-primary">
@@ -7,6 +12,7 @@
       <th>#</th>
       <th>企画名</th>
       <th>目標金額</th>
+      <th>現在の金額</th>
       <th>主催者</th>
       <th colspan="3"></th>
     </tr>
@@ -17,6 +23,7 @@
         <th scope="row"><%= project.id %></th>
         <td><%= project.name %></td>
         <td><%= project.target_point %></td>
+        <td><%= project.supported_point %></td>
         <td><%= project.user&.name %></td>
         <td><%= link_to 'Show', project %></td>
         <% if project.user == current_user %>

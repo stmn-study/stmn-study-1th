@@ -8,7 +8,7 @@
       </ul>
       <br>
       <% unless @project.user == current_user %>
-        <%= link_to "支援する", new_supported_point_path, class: 'btn btn-lg btn-primary btn-block'  %>
+        <%= link_to "支援する", new_supported_point_path(project_id:@project), class: 'btn btn-lg btn-primary btn-block'  %>
       <% end %>
     </div>
   </div>

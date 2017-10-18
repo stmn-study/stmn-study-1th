@@ -17,18 +17,9 @@
         <% end %>
 
         <div class="form-group">
-          <%= f.label :user_id, '支援者' %>
-          <%= f.number_field :user_id, class: 'form-control' %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :project_id, 'プロジェクト' %>
-          <%= f.number_field :project_id, class: 'form-control' %>
-        </div>
-
-        <div class="form-group">
           <%= f.label :point, 'ポイント' %>
           <%= f.number_field :point, class: 'form-control' %>
+          <%= f.hidden_field :project_id, value: @project.id %>
         </div>
 
         <div class="form-group">
