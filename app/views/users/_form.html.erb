@@ -23,7 +23,7 @@
 
   <div class="form-group">
     <%= f.label :gender, '性別' %>
-    <%= f.text_field :gender, class: 'form-control' %>
+    <%= f.select :gender, User.genders.keys.to_a, {}, class: 'form-control' %>
   </div>
 
   <div class="form-group">

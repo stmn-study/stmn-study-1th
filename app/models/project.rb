@@ -17,4 +17,7 @@ class Project < ApplicationRecord
 
   validates :name, :target_point, :message, :user, presence: true
 
+  def supported_point
+    supported_points.sum(:point)
+  end
 end

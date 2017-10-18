@@ -15,6 +15,4 @@ class SupportedPoint < ApplicationRecord
   belongs_to :project
 
   validates :user, :project, :point, presence: true
-
-
 end
