@@ -18,7 +18,10 @@ class SupportedPointsController < ApplicationController
       p.user = current_user
     end
 
-    if @supported_point.save
+    current_user.points -= @supported_point.point
+
+    if @supported_point.save && current_user.save
+      Activity.support!(@supported_point)
       redirect_to projects_path, notice: "支援が完了しました。"
     else
       render :new
