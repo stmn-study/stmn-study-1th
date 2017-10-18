@@ -1,32 +1,40 @@
-<%= form_for(supported_point) do |f| %>
-  <% if supported_point.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(supported_point.errors.count, "error") %> prohibited this supported_point from being saved:</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-6 col-offset-3">
 
-      <ul>
-      <% supported_point.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <%= form_for(supported_point) do |f| %>
+        <% if supported_point.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(supported_point.errors.count, "error") %> prohibited this supported_point from being
+              saved:</h2>
+
+            <ul>
+              <% supported_point.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="form-group">
+          <%= f.label :user_id, '支援者' %>
+          <%= f.number_field :user_id, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :project_id, 'プロジェクト' %>
+          <%= f.number_field :project_id, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :point, 'ポイント' %>
+          <%= f.number_field :point, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.submit (supported_point.new_record? ? '作成' : '更新'), data: {disable_with: '送信中'}, class: 'btn btn-lg btn-primary btn-block' %>
+        </div>
       <% end %>
-      </ul>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :user_id %>
-    <%= f.number_field :user_id %>
   </div>
-
-  <div class="field">
-    <%= f.label :project_id %>
-    <%= f.number_field :project_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :point %>
-    <%= f.number_field :point %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

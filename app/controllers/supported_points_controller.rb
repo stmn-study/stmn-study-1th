@@ -12,16 +12,23 @@ class SupportedPointsController < ApplicationController
     @supported_point = SupportedPoint.new
   end
 
+  def create
+    if @supported_point = SupportedPoint.create(supported_point_params)
+      redirect_to projects_path, notice: "支援が完了しました。"
+    else
+      render :new
+    end
+  end
+
   def edit
   end
 
-  def create
-    @supported_point = SupportedPoint.new(supported_point_params)
-
-  end
-
   def update
-
+    if @supported_point.update(supported_point_params)
+      redirect_to projects_path, notice: "支援額を変更しました。"
+    else
+      render :edit
+    end
   end
 
   def destroy
